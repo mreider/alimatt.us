@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alimatt LLC - HR & Product Management Consulting</title>
+    <title>AliMatt Trading LLC - Technology & Software Consulting</title>
     <style>
         * {
             margin: 0;
@@ -13,43 +13,54 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 1200px;
+            color: #1a1a1a;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
+            background: linear-gradient(180deg, #f8faf9 0%, #ffffff 100%);
+            min-height: 100vh;
         }
         header {
             text-align: center;
-            padding: 40px 0;
-            border-bottom: 1px solid #ddd;
+            padding: 50px 0;
             margin-bottom: 40px;
         }
         header h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            color: #1f514c;
+            letter-spacing: -0.03em;
+            font-weight: 700;
         }
         header p {
-            color: #666;
-            font-size: 1.1rem;
+            color: #5a6d6a;
+            font-size: 1.15rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
         }
-        .services {
-            background: #f9f9f9;
-            padding: 30px;
+        h2 {
+            color: #1f514c;
+            letter-spacing: -0.02em;
+        }
+        .about {
+            background: linear-gradient(135deg, #f0f7f5 0%, #fafafa 100%);
+            padding: 35px;
             margin-bottom: 40px;
-            border-radius: 8px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(31, 81, 76, 0.06);
         }
-        .services h2 {
+        .about h2 {
+            margin-bottom: 20px;
+        }
+        .about p {
             margin-bottom: 15px;
+            color: #3d4a48;
         }
-        .services ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px 30px;
+        .about p:last-child {
+            margin-bottom: 0;
         }
-        .services li::before {
-            content: "• ";
-            color: #555;
+        .about strong {
+            color: #1f514c;
         }
         .team {
             display: grid;
@@ -63,163 +74,192 @@
             }
         }
         .person {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 25px;
+            background: #fff;
+            border: none;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(31, 81, 76, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .person-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
+        .person:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(31, 81, 76, 0.12);
         }
         .person img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
+            margin-bottom: 18px;
+            border: 3px solid #e8f0ee;
         }
         .person h3 {
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            color: #1f514c;
+            font-weight: 600;
         }
         .person .title {
-            color: #666;
+            color: #5a6d6a;
             font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-weight: 500;
         }
-        .person h4 {
+        .person .bio {
             font-size: 0.9rem;
-            margin: 15px 0 10px;
-            color: #444;
+            color: #4a5957;
+            margin-bottom: 18px;
+            line-height: 1.7;
         }
-        .person ul {
+        .person .links {
             font-size: 0.9rem;
-            padding-left: 20px;
         }
-        .person li {
-            margin-bottom: 5px;
+        .person .links a {
+            color: #1f514c;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
-        .skills {
-            font-size: 0.85rem;
-            color: #555;
-            margin-top: 15px;
+        .person .links a:hover {
+            color: #2d746d;
+            text-decoration: underline;
         }
-        footer {
-            border-top: 1px solid #ddd;
-            padding-top: 30px;
+        .contact {
+            background: linear-gradient(135deg, #1f514c 0%, #2a6b64 100%);
+            padding: 35px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(31, 81, 76, 0.2);
+        }
+        .contact h2 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .contact p {
+            margin-bottom: 12px;
+        }
+        .contact a {
+            color: #d4f0eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .contact a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .locations {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            font-size: 0.9rem;
+            margin-bottom: 40px;
         }
         @media (max-width: 768px) {
-            footer {
+            .locations {
                 grid-template-columns: 1fr;
             }
         }
-        footer h4 {
-            margin-bottom: 10px;
+        .location {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(31, 81, 76, 0.05);
         }
-        footer address {
+        .location h4 {
+            margin-bottom: 12px;
+            color: #1f514c;
+            font-weight: 600;
+        }
+        .location address {
             font-style: normal;
-            color: #555;
+            color: #5a6d6a;
+            font-size: 0.9rem;
             line-height: 1.8;
         }
-        .copyright {
-            grid-column: 1 / -1;
+        footer {
+            border-top: 1px solid #e0e8e6;
+            padding-top: 25px;
             text-align: center;
-            color: #888;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+            color: #7a8a87;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Alimatt LLC</h1>
-        <p>HR & Product Management Consulting</p>
+        <h1>AliMatt Trading LLC</h1>
+        <p>Technology & Software Consulting</p>
     </header>
 
-    <section class="services">
-        <h2>Services</h2>
-        <ul>
-            <li>HR Strategy & Policy Development</li>
-            <li>Employee Relations & Conflict Resolution</li>
-            <li>Onboarding & People Operations</li>
-            <li>Product Management & Roadmap Planning</li>
-            <li>Developer Experience & API Strategy</li>
-            <li>SaaS Platform Consulting</li>
-        </ul>
+    <section class="about">
+        <h2>About Us</h2>
+        <p><strong>Services:</strong> We offer technology and software consulting services on a contract basis, serving businesses primarily in Europe and the United States.</p>
+        <p><strong>Operations:</strong> AliMatt Trading LLC operates as an independent consulting firm, engaging with corporate clients under professional services agreements. We work with international companies on project-based and ongoing engagements.</p>
+        <p><strong>Structure:</strong> Single-member LLC registered in Wyoming, USA. Currently owned and operated by Alison Cohen. A second member (Matt Reider) is expected to join the company in the near future.</p>
     </section>
 
     <section class="team">
         <div class="person">
-            <div class="person-header">
-                <img src="images/alison.jpeg" alt="Alison S. Cohen">
-                <div>
-                    <h3>Alison S. Cohen</h3>
-                    <p class="title">HR Consulting</p>
-                </div>
+            <img src="images/alison.jpeg" alt="Alison Cohen">
+            <h3>Alison Cohen</h3>
+            <p class="title">HR & People Operations</p>
+            <p class="bio">Experienced HR professional specializing in scaling people operations for international companies, policy development, and employee relations.</p>
+            <div class="links">
+                <a href="mailto:alison@mreider.com">Email</a>
+                <a href="https://www.linkedin.com/in/alison-cohen-4229681a7" target="_blank">LinkedIn</a>
             </div>
-            <h4>Experience</h4>
-            <ul>
-                <li>Senior People Experience Business Partner at Storyblok GmbH</li>
-                <li>Scaled HR processes supporting growth from 50 to 150+ employees across 45+ countries</li>
-                <li>Created policies for US and UK entities</li>
-                <li>Leadership coaching and employee relations</li>
-                <li>15+ years as School Counselor in California districts</li>
-            </ul>
-            <h4>Education</h4>
-            <ul>
-                <li>M.A. Education: Counseling, San Jose State University</li>
-                <li>B.A. Liberal Studies, San Francisco State University</li>
-            </ul>
-            <p class="skills"><strong>Skills:</strong> HR strategy, conflict resolution, employee lifecycle management, onboarding, policy development, leadership coaching, international compliance</p>
         </div>
 
         <div class="person">
-            <div class="person-header">
-                <img src="images/matt.jpeg" alt="Matthew Reider">
-                <div>
-                    <h3>Matthew Reider</h3>
-                    <p class="title">Product Management Consulting</p>
-                </div>
+            <img src="images/matt.jpeg" alt="Matt Reider">
+            <h3>Matt Reider</h3>
+            <p class="title">Product Management & Developer Tools</p>
+            <p class="bio">20+ years in product management, SaaS platforms, and developer ecosystems. Background includes Dynatrace, Checkr, and VMware.</p>
+            <div class="links">
+                <a href="mailto:matt@mreider.com">Email</a>
+                <a href="https://www.linkedin.com/in/mreider/" target="_blank">LinkedIn</a>
             </div>
-            <h4>Experience</h4>
-            <ul>
-                <li>Principal Product Manager at Dynatrace</li>
-                <li>Lead Product Manager at Checkr - AI compliance tools, enterprise integrations</li>
-                <li>Director of Product Management at VMware Tanzu/Pivotal</li>
-                <li>Senior Program Manager at Engine Yard</li>
-                <li>20+ years in product management and developer tools</li>
-            </ul>
-            <h4>Education</h4>
-            <ul>
-                <li>B.S. Economics, University of Vermont</li>
-                <li>Certified Product Owner & Scrum Master</li>
-            </ul>
-            <p class="skills"><strong>Skills:</strong> Product roadmap, KPI definition, go-to-market strategy, SaaS platforms, API strategy, developer ecosystems, AWS/GCP/Azure</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Get in Touch</h2>
+        <p><a href="mailto:alison@mreider.com">alison@mreider.com</a></p>
+        <p><a href="mailto:matt@mreider.com">matt@mreider.com</a></p>
+    </section>
+
+    <section class="locations">
+        <div class="location">
+            <h4>Wyoming</h4>
+            <address>
+                30 N Gould St<br>
+                Sheridan, WY 82801<br>
+                USA
+            </address>
+        </div>
+        <div class="location">
+            <h4>California</h4>
+            <address>
+                2108 N St, Ste N<br>
+                Sacramento, CA 95816<br>
+                USA
+            </address>
+        </div>
+        <div class="location">
+            <h4>Austria</h4>
+            <address>
+                The Icon Vienna<br>
+                Wiedner Gürtel 13<br>
+                1100 Vienna, Austria
+            </address>
         </div>
     </section>
 
     <footer>
-        <div>
-            <h4>Wyoming Office</h4>
-            <address>
-                Alimatt LLC<br>
-                30 N Gould St<br>
-                Sheridan, WY 82801
-            </address>
-        </div>
-        <div>
-            <h4>California Office</h4>
-            <address>
-                Alimatt LLC<br>
-                2108 N St, Ste N<br>
-                Sacramento, CA 95816
-            </address>
-        </div>
-        <p class="copyright">&copy; 2024 Alimatt LLC. All rights reserved.</p>
+        <p>&copy; 2024 AliMatt Trading LLC. All rights reserved.</p>
     </footer>
 </body>
 </html>
